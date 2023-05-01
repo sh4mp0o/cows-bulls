@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Collections.Generic;
 
 namespace cows_bulls
 {
@@ -70,6 +73,16 @@ namespace cows_bulls
         private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
             RecordWindow recordWindow = new RecordWindow();
+            var json = new DataContractJsonSerializer(typeof(List<Record>));
+            using (FileStream fs = File.OpenRead("Score.json"))
+            {
+                List<Record> records = (List<Record>)json.ReadObject(fs);
+                foreach (Record record in records)
+                {
+
+                }
+            }
+            recordWindow.Show();
             recordWindow.Show();
         }
 
@@ -84,6 +97,19 @@ namespace cows_bulls
                 " задумал 0834.\r\n\r\nИгрок сделал ход 8134.\r\n\r\nКомпьютер ответил:" +
                 " 2 быка (цифры 3 и 4) и 1 корова (цифра 8).";
             rulesWindow.Show();
+        }
+    }
+    [Serializable]
+    public class Record
+    {
+        public string name;
+        public int score;
+        public DateTime date;
+        public Record(string name, int score, DateTime date)
+        {
+            this.name = name;
+            this.score = score;
+            this.date = date;
         }
     }
 }
