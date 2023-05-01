@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cows_bulls"
         mc:Ignorable="d"
-        Title="RecordWindow" Height="450" Width="750" ResizeMode="NoResize">
+        Title="RecordWindow" Height="450" Width="750" ResizeMode="CanMinimize">
     <Grid>
         <Label x:Name="recordsLabel" FontFamily="Arial" FontSize="24" Foreground="White" FontWeight="Bold" FontStyle="Italic">
             <Label.Background>

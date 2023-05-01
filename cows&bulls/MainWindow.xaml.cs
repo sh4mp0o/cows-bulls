@@ -32,7 +32,7 @@ namespace cows_bulls
 
         private void tryButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void newGameButton_Click(object sender, RoutedEventArgs e)
