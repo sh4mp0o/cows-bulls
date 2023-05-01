@@ -53,7 +53,7 @@ namespace cows_bulls
             string attemp = tbox.Text;
             var bulls = 0; var cows = 0;
 
-            if (attemp.Length == 4 && Int32.TryParse(attemp, out var number)&& attemp.Distinct().Count() == attemp.Length)
+            if (attemp.Length == 4 && Int32.TryParse(attemp, out var number) && attemp.Distinct().Count() == attemp.Length)
             {
                 attemps++;
                 if (attemp == aim)
