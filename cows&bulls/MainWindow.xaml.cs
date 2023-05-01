@@ -49,14 +49,6 @@ namespace cows_bulls
         public MainWindow()
         {
             InitializeComponent();
-            var json = new DataContractJsonSerializer(typeof(List<Record>));
-            Record record = new Record("a", 9);
-            List<Record> list = new List<Record>();
-            list.Add(record);
-            using (FileStream fs1 = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                json.WriteObject(fs1, list);
-            }
             NewGame();
         }
 

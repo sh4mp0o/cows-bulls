@@ -32,14 +32,26 @@ namespace cows_bulls
         private void nameButton_Click(object sender, RoutedEventArgs e)
         {
             this.name = nameTextBox.Text;
+            List<Record> records;
             Record record = new Record(name, count);
             var json = new DataContractJsonSerializer(typeof(List<Record>));
-            using (FileStream fs = File.Open("Score.json", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
+            try
             {
-                List<Record> records = (List<Record>)json.ReadObject(fs);
+                using (FileStream fs = File.OpenRead("Score.json"))
+                {
+                    records = (List<Record>)json.ReadObject(fs);
+                    records.Add(record);
+                    records.Sort();
+                }
+            }
+            catch 
+            {
+                records = new List<Record>();
                 records.Add(record);
-                records.Sort();
-                json.WriteObject(fs, records);
+            }
+            using (FileStream fs1 = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                json.WriteObject(fs1, records);
             }
             this.Close();
         }
