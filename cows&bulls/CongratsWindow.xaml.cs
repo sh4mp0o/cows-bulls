@@ -19,6 +19,7 @@ namespace cows_bulls
     /// </summary>
     public partial class CongratsWindow : Window
     {
+        public string name;
         public CongratsWindow()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace cows_bulls
 
         private void nameButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = nameTextBox.Text;
+            this.name = nameTextBox.Text;
         }
     }
 }

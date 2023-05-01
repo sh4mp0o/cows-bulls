@@ -63,11 +63,10 @@ namespace cows_bulls
                 if (attemp == aim)
                 {
                     CongratsWindow congratsWindow = new CongratsWindow();
-                    congratsWindow.Owner = this;
                     congratsWindow.Show();
                     congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
                     tbox.IsEnabled = false;
-                    player.name = (string)congratsWindow.nameButton.Content;
+                    player.name = congratsWindow.name;
                     player.score = attemps;
                 }
                 else
