@@ -18,28 +18,32 @@ namespace cows_bulls
         {
             InitializeComponent();
             NewGame();
-            var rand = new Random();
+
+
+            Random rand = new Random();
             int num;
             bool[] used = new bool[10];
             bool isUnique = true;
             do
             {
-                // сгенерировать случайное четырехзначное число
+                // генерировать случайное число
                 num = rand.Next(0, 10000);
 
-                // проверить, что все цифры числа уникальны и первая цифра не равна 0
+                // проверить, что число состоит из четырех цифр
+                // и все цифры числа уникальны
                 Array.Clear(used, 0, used.Length);
                 foreach (char c in num.ToString())
                 {
                     int digit = c - '0';
-                    if (used[digit] || (digit == 0 && c != '0'))
+                    if (used[digit])
                     {
                         isUnique = false;
                         break;
                     }
                     used[digit] = true;
                 }
-            } while (!isUnique);
+            } while (num < 1000 || !isUnique);
+
             aim = Convert.ToString(num);
         }
 
