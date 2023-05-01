@@ -61,7 +61,11 @@ namespace cows_bulls
             {
                 if (attemp == aim)
                 {
-                    MessageBox.Show($"Поздравляю! Вы победили!\nДля победы вам понадобилось {attemps} попыток!"); //congratsWindow.Show();
+                    CongratsWindow congratsWindow = new CongratsWindow();
+
+                    congratsWindow.Show();
+                    congratsWindow.winLabel.Content = $"            Поздравляю! Вы победили!\n\r" +
+                        $"Для победы вам понадобилось {attemps + 1} попыток!\n\r\n\r\n\r\n\r\n\r\n\rВведите своё имя:";
                     tbox.IsEnabled = false;
                 }
                 for (int i = 0; i < 4; i++)
@@ -88,11 +92,11 @@ namespace cows_bulls
         private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
             RecordWindow recordWindow = new RecordWindow();
-            Record record1 = new Record("debil", 10, new DateTime(2023,5,1));
+            Record record1 = new Record("debil", 10, new DateTime(2023, 5, 1));
             List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
             records1.Add(record1);
-            using (FileStream fs =new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (FileStream fs = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 json.WriteObject(fs, records1);
             }
@@ -101,7 +105,7 @@ namespace cows_bulls
                 List<Record> records = (List<Record>)json.ReadObject(fs);
                 foreach (Record record in records)
                 {
-                    recordWindow.listRecords.Items.Add(record.name +"         "+ record.score +"        "+ record.date);
+                    recordWindow.listRecords.Items.Add(record.name + "         " + record.score + "        " + record.date);
                 }
             }
             recordWindow.Show();
