@@ -13,6 +13,7 @@ namespace cows_bulls
     public partial class MainWindow : Window
     {
         string aim;
+        int attemps = 0;
         public void NewGame()
         {
             listBox.Items.Clear();
@@ -55,7 +56,7 @@ namespace cows_bulls
         private void tryButton_Click(object sender, RoutedEventArgs e)
         {
             string attemp = tbox.Text;
-            var bulls = 0; var cows = 0; var attemps = 0;
+            var bulls = 0; var cows = 0;
             if (attemp.Length == 4 && Int32.TryParse(attemp, out var number))
             {
                 if (attemp == aim)
