@@ -64,12 +64,15 @@ namespace cows_bulls
                     congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
                     tbox.IsEnabled = false;
                 }
-                for (int i = 0; i < 4; i++)
+                else
                 {
-                    if (attemp[i] == aim[i]) bulls++;
-                    if (attemp[i] != aim[i] && aim.Contains(attemp[i])) cows++;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (attemp[i] == aim[i]) bulls++;
+                        if (attemp[i] != aim[i] && aim.Contains(attemp[i])) cows++;
+                    }
+                    listBox.Items.Add(attemp + $" - содержит {bulls} быков и {cows} коров.");
                 }
-                listBox.Items.Add(attemp + $" - содержит {bulls} быков и {cows} коров.");
             }
             else
             {
