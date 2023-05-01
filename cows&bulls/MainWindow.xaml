@@ -1,0 +1,48 @@
+﻿<Window x:Class="cows_bulls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cows_bulls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="750" ResizeMode="NoResize">
+    <Grid Background="#FFCC6633" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"></RowDefinition>
+            <RowDefinition Height="157*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn1" Grid.Row="0" Grid.Column="0" Content="Новая игра" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCC6633"/>
+                    <GradientStop Color="#FF003399" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn2" Grid.Row="0" Grid.Column="1" Content="Рекорды" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCC6633"/>
+                    <GradientStop Color="#FF003399" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn3" Grid.Row="0" Grid.Column="2" Content="Правила" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCC6633"/>
+                    <GradientStop Color="#FF003399" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="tbox" Grid.Row="2" Grid.Column="1" Height="20" Width="100" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="18" Margin="0,0,0,41"/>
+        <Button x:Name="btn4" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Попробовать!" FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,-19" Background="#FF993300" Foreground="White" Click="btn4_Click"></Button>
+        <ListBox x:Name="listBox" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" Background="#FF003399"/>
+    </Grid>
+</Window>
