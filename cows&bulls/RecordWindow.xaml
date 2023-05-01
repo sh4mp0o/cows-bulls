@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="RecordWindow" Height="450" Width="750" ResizeMode="CanMinimize">
     <Grid>
-        <Label x:Name="recordsLabel" FontFamily="Arial" FontSize="24" Foreground="White" FontWeight="Bold" FontStyle="Italic">
-            <Label.Background>
+        <ListBox x:Name="listRecords" FontFamily="Arial" FontSize="18" Foreground="White">
+            <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
                     <GradientStop Color="#FFCC6633" Offset="1"/>
                 </LinearGradientBrush>
-            </Label.Background>
-        </Label>
+            </ListBox.Background>
+        </ListBox>
     </Grid>
 </Window>
