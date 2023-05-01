@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CongratsWindow" Height="450" Width="750" ResizeMode="CanMinimize">
     <Grid>
-        <Label x:Name="winLabel" FontFamily="Arial" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center">
+        <Label x:Name="winLabel1" FontFamily="Arial" FontSize="24" FontWeight="Bold" Content="Поздравляю, вы победили!" Foreground="White" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -15,5 +15,9 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
+        <Label x:Name="winLabel2" FontFamily="Arial" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center" Margin="0,62,0,0"></Label>
+        <Label x:Name="winLabel3" FontFamily="Arial" FontSize="24" FontWeight="Bold" Content="Введите своё имя:" Foreground="White" Margin="0,314,0,0" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="nameTextBox" Margin="239,362,297,44"></TextBox>
+        <Button x:Name="nameButton" Content="Отправить" Margin="468,362,180,44" Click="nameButton_Click"></Button>
     </Grid>
 </Window>

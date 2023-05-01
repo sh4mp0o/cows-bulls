@@ -64,8 +64,7 @@ namespace cows_bulls
                     CongratsWindow congratsWindow = new CongratsWindow();
 
                     congratsWindow.Show();
-                    congratsWindow.winLabel.Content = $"            Поздравляю! Вы победили!\n\r" +
-                        $"Для победы вам понадобилось {attemps + 1} попыток!\n\r\n\r\n\r\n\r\n\r\n\rВведите своё имя:";
+                    congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
                     tbox.IsEnabled = false;
                 }
                 for (int i = 0; i < 4; i++)

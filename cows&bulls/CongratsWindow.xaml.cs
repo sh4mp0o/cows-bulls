@@ -26,7 +26,7 @@ namespace cows_bulls
 
         private void nameButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string name = nameTextBox.Text;
         }
     }
 }
