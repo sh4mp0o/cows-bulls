@@ -87,16 +87,22 @@ namespace cows_bulls
         private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
             RecordWindow recordWindow = new RecordWindow();
+            Record record1 = new Record("debil", 10, new DateTime(2023,5,1));
+            List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
+            records1.Add(record1);
+            using (FileStream fs =new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                json.WriteObject(fs, records1);
+            }
             using (FileStream fs = File.OpenRead("Score.json"))
             {
                 List<Record> records = (List<Record>)json.ReadObject(fs);
                 foreach (Record record in records)
                 {
-
+                    recordWindow.listRecords.Items.Add(record.name +"         "+ record.score +"        "+ record.date);
                 }
             }
-            recordWindow.Show();
             recordWindow.Show();
         }
 
