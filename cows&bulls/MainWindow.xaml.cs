@@ -49,6 +49,7 @@ namespace cows_bulls
         public MainWindow()
         {
             InitializeComponent();
+            using (FileStream fs1 = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
             NewGame();
         }
 
@@ -62,12 +63,12 @@ namespace cows_bulls
                 attemps++;
                 if (attemp == aim)
                 {
-                    CongratsWindow congratsWindow = new CongratsWindow();
+                    CongratsWindow congratsWindow = new CongratsWindow(attemps);
                     congratsWindow.Show();
                     congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
                     tbox.IsEnabled = false;
-                    player.name = congratsWindow.name;
-                    player.score = attemps;
+                    //player.name = congratsWindow.name;
+                    //player.score = attemps;
                 }
                 else
                 {
@@ -101,10 +102,6 @@ namespace cows_bulls
             List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
             //records1.Add(record1);
-            using (FileStream fs = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                json.WriteObject(fs, records1);
-            }
             using (FileStream fs = File.OpenRead("Score.json"))
             {
                 List<Record> records = (List<Record>)json.ReadObject(fs);

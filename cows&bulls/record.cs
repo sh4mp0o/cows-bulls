@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace cows_bulls
 {
     [Serializable]
-    public class Record
+    public class Record:IComparer<Record>
     {
         public string name;
         public int score;
@@ -17,6 +17,13 @@ namespace cows_bulls
             this.date = DateTime.Now;
             this.name = name;
             this.score = score;
+        }
+
+        public int Compare(Record x, Record y)
+        {
+            if (x.score > y.score) return 1;
+            else if (x.score < y.score) return -1;
+            return 0;
         }
     }
 }
