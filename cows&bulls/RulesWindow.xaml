@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cows_bulls"
         mc:Ignorable="d"
-        Title="RulesWindow" Height="450" Width="800">
+        Title="RulesWindow" Height="450" Width="750" ResizeMode="NoResize">
     <Grid>
-        <Label x:Name="rulesLabel" FontFamily="Arial" FontSize="24" Foreground="#FF003399" FontWeight="Bold" FontStyle="Italic">
+        <Label x:Name="rulesLabel" FontFamily="Arial" FontSize="18" Foreground="White" FontWeight="Bold" FontStyle="Italic">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

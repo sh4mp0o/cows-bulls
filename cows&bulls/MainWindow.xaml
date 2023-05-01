@@ -17,7 +17,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn1" Grid.Row="0" Grid.Column="0" Content="Новая игра" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="btn1_Click">
+        <Button x:Name="newGameButton" Grid.Row="0" Grid.Column="0" Content="Новая игра" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="newGameButton_Click" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFCC6633"/>
@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btn2" Grid.Row="0" Grid.Column="1" Content="Рекорды" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="btn2_Click">
+        <Button x:Name="recordsButton" Grid.Row="0" Grid.Column="1" Content="Рекорды" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="recordsButton_Click" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFCC6633"/>
@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btn3" Grid.Row="0" Grid.Column="2" Content="Правила" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="btn3_Click">
+        <Button x:Name="rulesButton" Grid.Row="0" Grid.Column="2" Content="Правила" FontFamily="Arial" FontSize="16" Margin="0,0,0,289" Grid.RowSpan="2" Foreground="White" Click="rulesButton_Click" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFCC6633"/>
@@ -42,7 +42,7 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="tbox" Grid.Row="2" Grid.Column="1" Height="20" Width="100" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="18" Margin="0,0,0,41"/>
-        <Button x:Name="btn4" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Попробовать!" FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,-19" Background="#FF993300" Foreground="White" Click="btn4_Click"></Button>
-        <ListBox x:Name="listBox" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" Background="#FF003399"/>
+        <Button x:Name="tryButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Попробовать!" FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,-19" Background="#FF993300" Foreground="White" Click="tryButton_Click"></Button>
+        <ListBox x:Name="listBox" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" Background="#FF003399" FontFamily="Arial" FontSize="18" Foreground="White"/>
     </Grid>
 </Window>
