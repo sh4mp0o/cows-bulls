@@ -14,15 +14,11 @@ namespace cows_bulls
     {
         string aim;
         int attemps = 0;
-        public void NewGame()
-        {
-            listBox.Items.Clear();
-            listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
-        }
         public MainWindow()
         {
             InitializeComponent();
-            NewGame();
+            listBox.Items.Clear();
+            listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
 
 
             Random rand = new Random();
@@ -49,7 +45,6 @@ namespace cows_bulls
                     used[digit] = true;
                 }
             } while (num < 1000 || !isUnique);
-
             aim = Convert.ToString(num);
         }
 
@@ -57,8 +52,10 @@ namespace cows_bulls
         {
             string attemp = tbox.Text;
             var bulls = 0; var cows = 0;
-            if (attemp.Length == 4 && Int32.TryParse(attemp, out var number))
+
+            if (attemp.Length == 4 && Int32.TryParse(attemp, out var number)&& attemp.Distinct().Count() == attemp.Length)
             {
+                attemps++;
                 if (attemp == aim)
                 {
                     CongratsWindow congratsWindow = new CongratsWindow();
@@ -74,11 +71,10 @@ namespace cows_bulls
                     if (attemp[i] != aim[i] && aim.Contains(attemp[i])) cows++;
                 }
                 listBox.Items.Add(attemp + $" - содержит {bulls} быков и {cows} коров.");
-                attemps++;
             }
             else
             {
-                MessageBox.Show("Введите четырехзначное число!");
+                MessageBox.Show("Введите четырехзначное число без повторяющихся цифр!");
                 tbox.Text = "";
             }
 
@@ -86,7 +82,35 @@ namespace cows_bulls
 
         private void newGameButton_Click(object sender, RoutedEventArgs e)
         {
-            NewGame();
+            listBox.Items.Clear();
+            listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
+            Random rand = new Random();
+            int num;
+            bool[] used = new bool[10];
+            bool isUnique = true;
+            do
+            {
+                isUnique = true;
+                // генерировать случайное число
+                num = rand.Next(1000, 10000);
+
+                // проверить, что число состоит из четырех цифр
+                // и все цифры числа уникальны
+                Array.Clear(used, 0, used.Length);
+                foreach (char c in num.ToString())
+                {
+                    int digit = c - '0';
+                    if (used[digit])
+                    {
+                        isUnique = false;
+                        break;
+                    }
+                    used[digit] = true;
+                }
+            } while (num < 1000 || !isUnique);
+
+            aim = Convert.ToString(num);
+            tbox.IsEnabled = true;
         }
 
         private void recordsButton_Click(object sender, RoutedEventArgs e)
