@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Windows;
-using System.Runtime.Serialization.Json;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Windows;
 
 namespace cows_bulls
 {
@@ -29,8 +30,9 @@ namespace cows_bulls
             bool isUnique = true;
             do
             {
+                isUnique = true;
                 // генерировать случайное число
-                num = rand.Next(0, 10000);
+                num = rand.Next(1000, 10000);
 
                 // проверить, что число состоит из четырех цифр
                 // и все цифры числа уникальны
@@ -53,9 +55,21 @@ namespace cows_bulls
         private void tryButton_Click(object sender, RoutedEventArgs e)
         {
             string attemp = tbox.Text;
+            var bulls = 0; var cows = 0; var attemps = 0;
             if (attemp.Length == 4 && Int32.TryParse(attemp, out var number))
             {
-
+                if (attemp == aim)
+                {
+                    MessageBox.Show($"Поздравляю! Вы победили!\nДля победы вам понадобилось {attemps} попыток!"); //congratsWindow.Show();
+                    tbox.IsEnabled = false;
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    if (attemp[i] == aim[i]) bulls++;
+                    if (attemp[i] != aim[i] && aim.Contains(attemp[i])) cows++;
+                }
+                listBox.Items.Add(attemp + $" - содержит {bulls} быков и {cows} коров.");
+                attemps++;
             }
             else
             {
