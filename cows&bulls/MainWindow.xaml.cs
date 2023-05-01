@@ -14,12 +14,11 @@ namespace cows_bulls
     {
         string aim;
         int attemps = 0;
-        public MainWindow()
+        public void NewGame()
         {
-            InitializeComponent();
             listBox.Items.Clear();
             listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
-
+            Record player = new Record();
 
             Random rand = new Random();
             int num;
@@ -46,6 +45,11 @@ namespace cows_bulls
                 }
             } while (num < 1000 || !isUnique);
             aim = Convert.ToString(num);
+        }
+        public MainWindow()
+        {
+            InitializeComponent();
+            NewGame();
         }
 
         private void tryButton_Click(object sender, RoutedEventArgs e)
@@ -84,44 +88,17 @@ namespace cows_bulls
 
         private void newGameButton_Click(object sender, RoutedEventArgs e)
         {
-            listBox.Items.Clear();
-            listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
-            Random rand = new Random();
-            int num;
-            bool[] used = new bool[10];
-            bool isUnique = true;
-            do
-            {
-                isUnique = true;
-                // генерировать случайное число
-                num = rand.Next(1000, 10000);
-
-                // проверить, что число состоит из четырех цифр
-                // и все цифры числа уникальны
-                Array.Clear(used, 0, used.Length);
-                foreach (char c in num.ToString())
-                {
-                    int digit = c - '0';
-                    if (used[digit])
-                    {
-                        isUnique = false;
-                        break;
-                    }
-                    used[digit] = true;
-                }
-            } while (num < 1000 || !isUnique);
-
-            aim = Convert.ToString(num);
+            NewGame();
             tbox.IsEnabled = true;
         }
 
         private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
             RecordWindow recordWindow = new RecordWindow();
-            Record record1 = new Record("debil", 10, new DateTime(2023, 5, 1));
+            //Record record1 = new Record("debil", 10, new DateTime(2023, 5, 1));
             List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
-            records1.Add(record1);
+            //records1.Add(record1);
             using (FileStream fs = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 json.WriteObject(fs, records1);
@@ -150,17 +127,5 @@ namespace cows_bulls
             rulesWindow.Show();
         }
     }
-    [Serializable]
-    public class Record
-    {
-        public string name;
-        public int score;
-        public DateTime date;
-        public Record(string name, int score, DateTime date)
-        {
-            this.name = name;
-            this.score = score;
-            this.date = date;
-        }
-    }
+    
 }

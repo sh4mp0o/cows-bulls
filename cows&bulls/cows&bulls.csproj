@@ -59,6 +59,7 @@
     <Compile Include="CongratsWindow.xaml.cs">
       <DependentUpon>CongratsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="record.cs" />
     <Compile Include="RecordWindow.xaml.cs">
       <DependentUpon>RecordWindow.xaml</DependentUpon>
     </Compile>
