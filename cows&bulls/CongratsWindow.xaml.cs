@@ -34,15 +34,12 @@ namespace cows_bulls
             this.name = nameTextBox.Text;
             Record record = new Record(name, count);
             var json = new DataContractJsonSerializer(typeof(List<Record>));
-            using (FileStream fs = File.OpenRead("Score.json"))
+            using (FileStream fs = File.Open("Score.json", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
             {
                 List<Record> records = (List<Record>)json.ReadObject(fs);
                 records.Add(record);
                 records.Sort();
-                using (FileStream fs1 = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
-                {
-                    json.WriteObject(fs1, records);
-                }
+                json.WriteObject(fs, records);
             }
             this.Close();
         }
