@@ -17,7 +17,7 @@
         </Label>
         <Label x:Name="winLabel2" FontFamily="Arial" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center" Margin="0,62,0,0"></Label>
         <Label x:Name="winLabel3" FontFamily="Arial" FontSize="24" FontWeight="Bold" Content="Введите своё имя:" Foreground="White" Margin="0,314,0,0" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="nameTextBox" Margin="239,362,297,44"></TextBox>
-        <Button x:Name="nameButton" Content="Отправить" Margin="468,362,180,44" Click="nameButton_Click"></Button>
+        <TextBox x:Name="nameTextBox" Margin="235,348,301,34"></TextBox>
+        <Button x:Name="nameButton" Content="Отправить" Margin="454,348,194,34" Click="nameButton_Click"></Button>
     </Grid>
 </Window>

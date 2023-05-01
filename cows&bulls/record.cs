@@ -12,9 +12,11 @@ namespace cows_bulls
         public string name;
         public int score;
         public DateTime date;
-        public Record()
+        public Record(string name, int score)
         {
-
+            this.date = DateTime.Now;
+            this.name = name;
+            this.score = score;
         }
     }
 }

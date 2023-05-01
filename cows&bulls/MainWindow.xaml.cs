@@ -14,11 +14,11 @@ namespace cows_bulls
     {
         string aim;
         int attemps = 0;
+        Record player = new Record("", 0);
         public void NewGame()
         {
             listBox.Items.Clear();
             listBox.Items.Add("Введите четырехзначное число без повторяющихся цифр.");
-            Record player = new Record();
 
             Random rand = new Random();
             int num;
@@ -63,10 +63,12 @@ namespace cows_bulls
                 if (attemp == aim)
                 {
                     CongratsWindow congratsWindow = new CongratsWindow();
-
+                    congratsWindow.Owner = this;
                     congratsWindow.Show();
                     congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
                     tbox.IsEnabled = false;
+                    player.name = (string)congratsWindow.nameButton.Content;
+                    player.score = attemps;
                 }
                 else
                 {
@@ -95,6 +97,7 @@ namespace cows_bulls
         private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
             RecordWindow recordWindow = new RecordWindow();
+            recordWindow.Owner = this;
             //Record record1 = new Record("debil", 10, new DateTime(2023, 5, 1));
             List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
@@ -117,6 +120,7 @@ namespace cows_bulls
         private void rulesButton_Click(object sender, RoutedEventArgs e)
         {
             RulesWindow rulesWindow = new RulesWindow();
+            rulesWindow.Owner = this;
             rulesWindow.rulesLabel.Content = "Правила игры\r\nКомпьютер задумывает четыре различные цифры" +
                 " из 0,1,2,...9. Игрок делает\r\nходы, чтобы узнать эти цифры и их порядок.\r\n\r\nКаждый ход" +
                 " состоит из четырёх цифр, 0 может стоять на первом месте.\r\n\r\nВ ответ компьютер" +
