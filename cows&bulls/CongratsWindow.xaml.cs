@@ -44,10 +44,12 @@ namespace cows_bulls
                     records.Sort();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                records = new List<Record>();
-                records.Add(record);
+                records = new List<Record>
+                {
+                    record
+                };
             }
             using (FileStream fs1 = new FileStream("Score.json", FileMode.Create, FileAccess.Write, FileShare.None))
             {
