@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cows_bulls"
         mc:Ignorable="d"
-        Title="CongratsWindow" Height="450" Width="750" ResizeMode="CanMinimize">
+        Title="CongratsWindow" Height="450" Width="750" ResizeMode="CanMinimize" Icon="/unnamed1.png">
     <Grid>
         <Label x:Name="winLabel1" FontFamily="Arial" FontSize="24" FontWeight="Bold" Content="Поздравляю, вы победили!" Foreground="White" HorizontalContentAlignment="Center">
             <Label.Background>

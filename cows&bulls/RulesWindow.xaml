@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cows_bulls"
         mc:Ignorable="d"
-        Title="RulesWindow" Height="450" Width="750" ResizeMode="CanMinimize">
+        Title="RulesWindow" Height="450" Width="750" ResizeMode="CanMinimize" Icon="/unnamed3.png">
     <Grid>
         <Label x:Name="rulesLabel" FontFamily="Arial" FontSize="18" Foreground="White" FontWeight="Bold" FontStyle="Italic">
             <Label.Background>

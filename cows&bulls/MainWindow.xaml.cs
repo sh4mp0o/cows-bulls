@@ -14,7 +14,6 @@ namespace cows_bulls
     {
         string aim;
         int attemps = 0;
-        Record player = new Record("", 0);
         public void NewGame()
         {
             listBox.Items.Clear();
@@ -64,7 +63,7 @@ namespace cows_bulls
                 {
                     CongratsWindow congratsWindow = new CongratsWindow(attemps);
                     congratsWindow.Show();
-                    congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps + 1} попыток!";
+                    congratsWindow.winLabel2.Content = $"Для победы вам понадобилось {attemps} попыток!";
                     tbox.IsEnabled = false;
                     //player.name = congratsWindow.name;
                     //player.score = attemps;
@@ -82,9 +81,8 @@ namespace cows_bulls
             else
             {
                 MessageBox.Show("Введите четырехзначное число без повторяющихся цифр!");
-                tbox.Text = "";
             }
-
+            tbox.Text = "";
         }
 
         private void newGameButton_Click(object sender, RoutedEventArgs e)
@@ -101,13 +99,19 @@ namespace cows_bulls
             List<Record> records1 = new List<Record>();
             var json = new DataContractJsonSerializer(typeof(List<Record>));
             //records1.Add(record1);
-            using (FileStream fs = File.OpenRead("Score.json"))
+            try
             {
-                List<Record> records = (List<Record>)json.ReadObject(fs);
-                foreach (Record record in records)
+                using (FileStream fs = File.OpenRead("Score.json"))
                 {
-                    recordWindow.listRecords.Items.Add(record.name + "         " + record.score + "        " + record.date);
+                    List<Record> records = (List<Record>)json.ReadObject(fs);
+                    foreach (Record record in records)
+                    {
+                        recordWindow.listRecords.Items.Add(record.name + "         " + record.score + "        " + record.date);
+                    }
                 }
+            }
+            catch (Exception)
+            {
             }
             recordWindow.Show();
         }
@@ -118,7 +122,7 @@ namespace cows_bulls
             rulesWindow.Owner = this;
             rulesWindow.rulesLabel.Content = "Правила игры\r\nКомпьютер задумывает четыре различные цифры" +
                 " из 0,1,2,...9. Игрок делает\r\nходы, чтобы узнать эти цифры и их порядок.\r\n\r\nКаждый ход" +
-                " состоит из четырёх цифр, 0 может стоять на первом месте.\r\n\r\nВ ответ компьютер" +
+                " состоит из четырёх цифр.\r\n\r\nВ ответ компьютер" +
                 " показывает число отгаданных цифр, стоящих на\r\nсвоих местах (число быков) и число" +
                 " отгаданных цифр, стоящих не на\r\nсвоих местах (число коров).\r\n\r\nПример\r\nКомпьютер" +
                 " задумал 0834.\r\n\r\nИгрок сделал ход 8134.\r\n\r\nКомпьютер ответил:" +

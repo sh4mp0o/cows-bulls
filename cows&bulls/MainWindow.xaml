@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cows_bulls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="750" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="450" Width="750" ResizeMode="CanMinimize" Icon="/unnamed.png">
     <Grid Background="#FFCC6633" >
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"></RowDefinition>
@@ -42,7 +42,7 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="tbox" Grid.Row="2" Grid.Column="1" Height="20" Width="100" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="18" Margin="0,0,0,41"/>
-        <Button x:Name="tryButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Попробовать!" FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,-19" Background="#FF993300" Foreground="White" Click="tryButton_Click"></Button>
+        <Button x:Name="tryButton" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Попробовать!" FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,-19" Background="#FF993300" Foreground="White" Click="tryButton_Click" IsDefault="True"></Button>
         <ListBox x:Name="listBox" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" Background="#FF003399" FontFamily="Arial" FontSize="18" Foreground="White"/>
     </Grid>
 </Window>
