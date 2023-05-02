@@ -44,7 +44,7 @@ namespace cows_bulls
                     records.Sort();
                 }
             }
-            catch 
+            catch (Exception ex)
             {
                 records = new List<Record>();
                 records.Add(record);
